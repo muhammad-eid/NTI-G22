@@ -120,7 +120,7 @@ console.log(result);
 
 
 const tasks = []
-/* show ,  */
+/* show , add, edit, delete */
 
 
 
