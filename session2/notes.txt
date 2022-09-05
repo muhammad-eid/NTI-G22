@@ -1,0 +1,3 @@
+tasks app 
+task => title, content, id(unique)
+add , show all tasks, show sigle task, del, edit
