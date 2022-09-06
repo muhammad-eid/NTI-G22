@@ -1,0 +1,6 @@
+customer => 
+    id, name, intial balance, operations :{opType:"",opVal:100}, remaining balance
+all
+single
+add balance (max 5000)
+withdraw from balance (max remaining balance)
