@@ -25,24 +25,24 @@ yargs.command({
             default:false
         }
     },
-    handler: (argv)=>{
-        user.add(argv)
-    }
+    handler: (argv)=> user.add(argv)
 })
 //showall
 yargs.command({
     command:"showAll",
-    builder:{},
-    handler: (argv)=>{
-        user.showAll()
-    }
+    handler: ()=>user.showAll()
 })
 //show single
 yargs.command({
     command:"showSingle",
-    builder:{},
+    builder:{
+        id:{
+            type:"string",
+            demandOption:true
+        }
+    },
     handler: (argv)=>{
-        user.showSingle()
+        user.showSingle(argv.id)
     }
 })
 //edit
@@ -56,9 +56,14 @@ yargs.command({
 //del
 yargs.command({
     command:"del",
-    builder:{},
+    builder:{
+        id:{
+            type:"string",
+            demandOption:true
+        }
+    },
     handler: (argv)=>{
-        user.del()
+        user.del(argv.id)
     }
 })
 yargs.argv
