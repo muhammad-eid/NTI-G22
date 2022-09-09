@@ -48,9 +48,11 @@ yargs.command({
 //edit
 yargs.command({
     command:"edit",
-    builder:{},
+    builder:{
+        id:{demandOption:true}
+    },
     handler: (argv)=>{
-        user.edit()
+        user.edit(argv)
     }
 })
 //del

@@ -41,8 +41,14 @@ class User{
         if(!myUser||myUser=="invalid") return console.log(chalk.red("no users"))
         userPrinter(myUser)
     }
-    static edit(){
-        console.log("edit from user class")
+    static edit(argv){
+        const allUsers = files.readFromFile("db/users.json")
+        const myUser = searchUser(allUsers,argv.id, "index", "id")
+        if(myUser==-1||myUser=="invalid") return console.log(chalk.red("no users"))
+        heads.forEach(h=> {
+            if(argv[h]) allUsers[myUser][h] = argv[h]
+        })
+        files.writeToFile("db/users", allUsers, "json")
     }
     static del(id){
         const allUsers = files.readFromFile("db/users.json")
@@ -52,5 +58,4 @@ class User{
         files.writeToFile("db/users",allUsers)
     }
 }
-// const u1 = new User()
 module.exports = User
