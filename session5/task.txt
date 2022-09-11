@@ -1,0 +1,9 @@
+add customer => accNum, intial balance, name
+==> unique accNum
+yargs
+    {accNum, name, intial balance}
+
+=> added 
+=> accNum =null =>  required
+=> accNum => used befores
+

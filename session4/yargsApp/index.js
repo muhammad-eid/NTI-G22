@@ -56,6 +56,7 @@ yargs.command({
     }
 })
 //del
+//node index del --id=5
 yargs.command({
     command:"del",
     builder:{
@@ -64,7 +65,7 @@ yargs.command({
             demandOption:true
         }
     },
-    handler: (argv)=>{
+    handler: (argv)=>{ //{id:5}
         user.del(argv.id)
     }
 })
