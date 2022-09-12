@@ -1,0 +1,2 @@
+task => name, title, content, status
+add, showall, change status, del, single

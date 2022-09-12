@@ -1,0 +1,34 @@
+{{>header}}
+{{>navbar}}
+{{>slider}}
+<section class="container">
+    {{!-- {{#if noUsers}} --}}
+    {{#unless hasUsers}}
+        <div class="alert alert-dang">No Users Yet</div>
+        {{else}}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each allUsers}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{this.name}}</td>
+                <td>
+                    <a href="/single/{{this.id}}" class="mx-2 btn btn-primary">Show</a>
+                    <a href="/edit/{{this.id}}" class="mx-2 btn btn-warning">Edit</a>
+                    <a href="/delete/{{this.id}}" class="mx-2 btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{/unless}}
+    {{!-- {{/if}} --}}
+</section>
+{{>footer}}
