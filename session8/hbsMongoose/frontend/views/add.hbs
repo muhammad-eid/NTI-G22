@@ -1,0 +1,41 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-5">
+    <form action="/getAddLogic"> 
+        {{!-- get --}}
+        <div class="mb-3">
+            <input name="name" placeholder="please enter your name" class="form-control" value="{{userData.name}}">
+            {{#if e.errors.name}}
+            <div class="alert alert-danger">{{e.errors.name}}</div>
+            {{/if}}
+        </div>
+        <div class="mb-3">
+            <input name="email" placeholder="please enter your email" class="form-control" value="{{userData.email}}">
+            {{#if e.errors.email}}
+            <div class="alert alert-danger">{{e.errors.email}}</div>
+            {{/if}}
+        </div>
+        <div class="mb-3">
+            <input name="age" placeholder="please enter your age" class="form-control" value="{{userData.age}}">
+            {{#if e.errors.age}}
+                        <div class="alert alert-danger">{{e.errors.age}}</div>
+{{/if}}
+        </div>
+
+        <div class="mb-3">
+            status
+            <input name="status" type="radio" value="false"> False - 
+            <input name="status" type="radio" value="true"> True 
+                        {{#if e.errors.status}}
+
+                        <div class="alert alert-danger">{{e.errors.status}}</div>
+{{/if}}
+            {{!-- on null --}}
+        </div>
+                <div class="mb-3">
+            <button class="btn btn-primary">Add User</button>
+        </div>
+    </form>
+</section>
+
+{{>footer}}
