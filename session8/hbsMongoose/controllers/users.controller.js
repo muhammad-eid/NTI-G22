@@ -123,7 +123,7 @@ class User{
         try{
             const result = await userModel.findById(req.params.id)
             result.addresses.push(
-                { addrType:"home", addrDetails:"6 october" } 
+                {  addrType:"home", addrDetails:"6 october" } 
             )
             await result.save()
             res.send(result)
@@ -132,6 +132,17 @@ class User{
             res.send(e)
         }
 
+    }
+    static getAddr = async(req,res)=>{
+        try{
+            const user = await userModel.findOne({
+                "addresses._id" : req.params.addId,
+            })
+            res.send(user)
+        }
+        catch(e){
+            res.send(e)
+        }
     }
 }
 module.exports = User

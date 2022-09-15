@@ -11,5 +11,5 @@ router.get('/edit/:id', User.edit)
 router.post("/edit/:id", User.editLogic)
 router.get("/change/:id", User.change)
 router.get("/addAddr/:id", User.addAddress)
-
+router.get("/user/:addId", User.getAddr)
 module.exports = router
