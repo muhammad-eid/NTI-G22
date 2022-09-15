@@ -11,3 +11,8 @@ login
 logout
 profile
 add image
+
+
+posts => title, type = [txt, file], content, file
+if type = txt => content=>required, file=> not required
+else file => required, content not required
