@@ -1,0 +1,18 @@
+user => name, age, email, address, image, password, status
+add
+show all
+single
+edit password
+edit user
+deactivate
+activate
+delete
+login
+logout
+profile
+add image
+
+
+posts => title, type = [txt, file], content, file
+if type = txt => content=>required, file=> not required
+else file => required, content not required

@@ -1,0 +1,14 @@
+a adel=> ecommerce
+a mahmoud => ecommerce
+amany => ecommerce
+amen => ecommerce
+eman => ecommerce
+aya ahmed => book store
+zakria => blog
+safaa => library
+kerolos => ecommerce
+marina => ecommerce
+m eid => ecommerce
+moamen => ecommerce
+nada => ecommerce
+yasmen => ecommerce
