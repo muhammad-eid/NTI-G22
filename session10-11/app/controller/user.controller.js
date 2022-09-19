@@ -1,4 +1,7 @@
 const userModel = require("../database/models/user.model")
+const path=require("path")
+const fs = require('fs')
+
 class User {
    static register = async(req,res) =>{
     try{
@@ -181,6 +184,32 @@ class User {
         res.status(500).send({apiStatus:false})
     }
    }
+   static imgUpload = async(req, res)=> {
+    try{
+      const ext = path.extname(req.file.originalname)
+     fs.renameSync(req.file.path, `${req.file.path}${ext}`)
+     let oldImg 
+     if(req.user.image)
+     oldImg =path.join(__dirname,"../", "public", req.user.image)
+     else 
+     oldImg=null
+     req.user.image = `${req.file.filename}${ext}`
+     await req.user.save()
+     if(oldImg) fs.unlinkSync(oldImg)
+     res.send({user:req.user, b:req.body})
+ }
+ catch(e){
+     res.send(e)
+ }
+ }
+
+ static delMe = async(req,res)=>{
+    try{
+        await req.user.remove()
+        res.send("done")
+    }
+    catch(e){res.send({error:e.message})}
+ }
 }
 
 module.exports = User

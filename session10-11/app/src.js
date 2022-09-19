@@ -13,6 +13,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 const userRoutes = require("../routes/user.api")
-app.use(userRoutes)
+app.use("/user",userRoutes)
+const postRoutes = require("../routes/post.api")
+app.use("/post",postRoutes)
 
 module.exports = app 

@@ -46,6 +46,11 @@ userSchema.methods.toJSON = function(){
     delete userData.tokens
     return userData
 }
+userSchema.virtual("myPosts", {
+    ref:"Blog",
+    localField: "_id",
+    foreignField:"userId"
+})
 userSchema.pre("save", async function(){
     const data = this
     if(data.isModified("password")){
@@ -72,8 +77,16 @@ userSchema.methods.generateToken = async function(){
     await user.save()
     return token
 }
+const postModel =require("./post.model")
+userSchema.pre("remove", async function(next){
+    // console.log(req.user)
+    const user = this
+    await postModel.deleteMany({userId: this._id})
+    next()
+})
 
 const User = mongoose.model("User", userSchema)
 module.exports = User
 
 
+// postMode.findOne({_id:req.body._id, userId: req.user._id})

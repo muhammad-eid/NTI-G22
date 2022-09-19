@@ -1,5 +1,10 @@
 const mongoose = require("mongoose")
 const blogSchema = mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"User"
+    },
     postType:{
         type:String,
         enum:["file", "txt"]
@@ -15,5 +20,5 @@ const blogSchema = mongoose.Schema({
         required: function(){return this.postType!="txt"}
     }
 })
-const Blog = mongoose.model(blogSchema)
+const Blog = mongoose.model("Blog",blogSchema)
 module.exports = Blog
