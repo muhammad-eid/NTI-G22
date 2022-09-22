@@ -1,0 +1,14 @@
+roles , routes
+id  Model    type    link
+1   user     add      /user/add
+2   user     edit     /user/edit
+.....
+roles
+admin    [1,2]
+user      [1]
+super   [1,2,3,4]
+emp     [5]
+.........
+user
+name    roles
+a        admin
